@@ -34,6 +34,11 @@
 | T6.1 | Add global error handler middleware | 2026-05-04 | Catch-all for async/sync errors with logging |
 | T6.2 | Add request validation | 2026-05-04 | Implemented Joi/Zod or manual validation rules |
 | T6.3 | Standardize error response format | 2026-05-04 | Unified success/error JSON structure |
+| T7.1 | Implement Redis Connection Logic | 2026-05-04 | ioredis singleton with SSL and graceful shutdown |
+| T7.2 | Implement Redis idempotency middleware | 2026-05-04 | Header-based SET NX logic for race condition handling |
+| T7.3 | Update DB schema & migrations | 2026-05-04 | Unique constraints and idempotency record tracking |
+| T7.4 | Controller & Transaction Integration | 2026-05-04 | Atomic writes with response caching and DB unique checks |
+| T7.5 | Concurrency & Failure Testing | 2026-05-04 | Verified duplicate/simultaneous requests and Redis fallback |
 
 ## Pending Tasks
 ### Phase 0: Project Initialisation
@@ -138,14 +143,17 @@ model Transaction {
 - ~~T6.2: Add request validation (manual or express-validator)~~
 - ~~T6.3: Standardize error response format~~
 
-### Phase 7: Security & Cleanup
-- T7.1: Protect all sensitive routes
-- T7.2: Add rate limiting
-- T7.3: Sanitize inputs
+### Phase 7: Redis & Idempotency Key Addition
+- ~~T7.1: Implement Redis Connection Logic~~
+- ~~T7.2: Implement Redis idempotency middleware~~
+- ~~T7.3: Update database schema~~
+- ~~T7.4: Controller integration and final DB check~~
+- ~~T7.5: Testing~~
 
 ### Phase 8: Documentation (README)
 - T8.1: Write "How to run" instructions
 - T8.2: Document key design decisions
+- T8.3: Document and explain every endpoint 
 
 ### Phase 9: Testing
 - T9.1: Write smoke tests with Jest + Supertest
@@ -160,4 +168,4 @@ model Transaction {
 - (none)
 
 ## Current Focus
-- Phase 7 (Security & Cleanup) – hardening production readiness
+- Phase 8 (Documentation - README) – Comprehensive bundle in progress

@@ -76,5 +76,8 @@ This is a multi‑company financial ledger system API built with Node.js, Expres
 ### Phase 6: Error Handling & Validation
 - [x] **T6.1 - T6.3**: Standardized API responses with a global error handler and implemented robust input validation across all endpoints.
 
-### Phase 7: Security & Cleanup
-- [ ] **T7.1**: Hardening routes and rate limiting - *Next*
+### Phase 7: Redis & Idempotency Key Addition
+- [x] **T7.1 - T7.5**: Implemented robust header-based request idempotency using Redis and PostgreSQL. Features include atomic `SET NX` locks for concurrency, transaction-aware response caching, and database-level unique enforcement.
+
+### Phase 8: Documentation & Final Prep
+- [ ] **T8.1**: Finalizing README and submission - *Next*
