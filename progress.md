@@ -4,13 +4,16 @@
 | Task ID | Description | Completed On | Notes |
 |---------|-------------|--------------|-------|
 | T0.1 | Create a new Node.js project | 2026-05-03 | Initialized with npm init -y |
+| T0.2 | Install dependencies | 2026-05-03 | Production and dev deps installed |
+| T0.3 | Install dev dependencies | 2026-05-03 | Installed nodemon and jest |
+| T0.4 | Setup folder structure | 2026-05-04 | Created src/ directories and server.js |
 
 ## Pending Tasks
 ### Phase 0: Project Initialisation
 - ~~T0.1: Create a new Node.js project (`npm init -y`)~~
-- T0.2: Install dependencies: `express`, `jsonwebtoken`, `bcryptjs`, `pg`, `dotenv`, `cors`, `prisma`, `@prisma/client`
-- T0.3: Install dev dependencies: `nodemon`, `jest`
-- T0.4: Setup folder structure (src/, config/, controllers/, middleware/, models/, routes/, utils/)
+- ~~T0.2: Install dependencies: `express`, `jsonwebtoken`, `bcryptjs`, `pg`, `dotenv`, `cors`, `prisma`, `@prisma/client`~~
+- ~~T0.3: Install dev dependencies: `nodemon`, `jest`~~
+- ~~T0.4: Setup folder structure (src/, config/, controllers/, middleware/, models/, routes/, utils/)~~
 - T0.5: Setup environment variables (`.env`)
 - T0.6: Initialise Git repository and create initial commit
 
@@ -113,4 +116,4 @@ model Transaction {
 - (none)
 
 ## Current Focus
-- Task T0.2 (Install dependencies) – in progress
+- Task T0.5 (Setup environment variables) – in progress
