@@ -22,6 +22,11 @@
 | T3.3 | Implement GET /companies | 2026-05-04 | Returns all companies with user roles |
 | T3.4 | Add checkCompanyAccess middleware | 2026-05-04 | Role-based RBAC for company resources |
 | T3.5 | Add POST /companies/:id/users | 2026-05-04 | Owner-only user invitation logic |
+| T4.1 | Create transaction routes skeleton | 2026-05-04 | Mounted under /api/v1/companies/:id/transactions |
+| T4.2 | Apply auth & access middlewares | 2026-05-04 | Secure transactions with JWT and membership |
+| T4.3 | Implement POST transaction | 2026-05-04 | Record income/expense with financial precision |
+| T4.4 | Implement GET transactions | 2026-05-04 | Listing with type and date range filtering |
+| T4.5 | Implement input validation | 2026-05-04 | Hardened with amount and type checks |
 
 ## Pending Tasks
 ### Phase 0: Project Initialisation
@@ -109,11 +114,11 @@ model Transaction {
 - ~~T3.6: Add `POST /companies/:companyId/users` endpoint~~
 
 ### Phase 4: Transactions API
-- T4.1: Create transaction routes: `POST /companies/:companyId/transactions`, `GET /companies/:companyId/transactions`
-- T4.2: Apply access middlewares
-- T4.3: Implement `POST` transaction
-- T4.4: Implement `GET` transactions with filtering
-- T4.5: Validate input
+- ~~T4.1: Create transaction routes: `POST /companies/:companyId/transactions`, `GET /companies/:companyId/transactions`~~
+- ~~T4.2: Apply access middlewares~~
+- ~~T4.3: Implement `POST` transaction~~
+- ~~T4.4: Implement `GET` transactions with filtering~~
+- ~~T4.5: Validate input~~
 
 ### Phase 5: Dashboard Endpoint
 - T5.1: Create route: `GET /dashboard?companyId=XYZ`
@@ -148,4 +153,4 @@ model Transaction {
 - (none)
 
 ## Current Focus
-- Task T4.1 (Create transaction routes) – up next
+- Phase 5 (Dashboard Endpoint & Analytics) – next step

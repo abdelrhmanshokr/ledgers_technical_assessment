@@ -66,4 +66,9 @@ This is a multi‑company financial ledger system API built with Node.js, Expres
 - [x] **T3.4 & T3.5**: Developed `checkCompanyAccess` middleware for RBAC and implemented user invitation logic for Owners.
 
 ### Phase 4: Transactions API
-- [ ] **T4.1**: Setting up transaction routes - *Next*
+- [x] **T4.1 & T4.2**: Created secure transaction infrastructure restricted by both user authentication and company membership.
+- [x] **T4.3 & T4.5**: Implemented income/expense recording with strict validation and decimal precision.
+- [x] **T4.4**: Developed transaction history endpoint with advanced filtering by type and date ranges.
+
+### Phase 5: Dashboard Endpoint
+- [ ] **T5.1**: Implementing status and summary analytics - *Next*

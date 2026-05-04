@@ -54,6 +54,7 @@ enum UserRole {
 model Transaction {
   id          Int             @id @default(autoincrement())
   amount      Decimal         @db.Decimal(15, 2)
+  category    String          @default("General")
   description String?
   date        DateTime
   createdAt   DateTime        @default(now())
