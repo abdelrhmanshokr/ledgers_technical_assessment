@@ -38,11 +38,17 @@ model Company {
 model CompanyUser {
   userId    Int
   companyId Int
-  joinedAt  DateTime @default(now())
-  company   Company  @relation(fields: [companyId], references: [id])
-  user      User     @relation(fields: [userId], references: [id])
+  joinedAt  DateTime   @default(now())
+  role      UserRole   @default(MEMBER)
+  company   Company    @relation(fields: [companyId], references: [id])
+  user      User       @relation(fields: [userId], references: [id])
 
   @@id([userId, companyId])
+}
+
+enum UserRole {
+  OWNER
+  MEMBER
 }
 
 model Transaction {

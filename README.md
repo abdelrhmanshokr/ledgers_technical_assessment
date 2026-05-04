@@ -61,4 +61,9 @@ This is a multi‑company financial ledger system API built with Node.js, Expres
 
 ### Phase 3: Company Management
 - [x] **T3.1**: Set up company management infrastructure and routes protected by authentication.
-- [ ] **T3.2**: Implementing `POST /companies` with automatic association - *In Progress*
+- [x] **T3.2**: Implemented atomic company creation with Prisma transactions and role-based owner association.
+- [x] **T3.3**: Implemented list and detail views for companies with membership roles.
+- [x] **T3.4 & T3.5**: Developed `checkCompanyAccess` middleware for RBAC and implemented user invitation logic for Owners.
+
+### Phase 4: Transactions API
+- [ ] **T4.1**: Setting up transaction routes - *Next*

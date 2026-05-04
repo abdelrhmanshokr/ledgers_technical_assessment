@@ -18,6 +18,10 @@
 | T2.4 | Create auth middleware | 2026-05-04 | Verified protect middleware with DB check |
 | T2.5 | Test endpoints | 2026-05-04 | Verified Auth flows with placeholder routes |
 | T3.1 | Create company routes skeleton | 2026-05-04 | Protected company routes with middleware |
+| T3.2 | Implement create company logic | 2026-05-04 | Atomic transaction with role-based association |
+| T3.3 | Implement GET /companies | 2026-05-04 | Returns all companies with user roles |
+| T3.4 | Add checkCompanyAccess middleware | 2026-05-04 | Role-based RBAC for company resources |
+| T3.5 | Add POST /companies/:id/users | 2026-05-04 | Owner-only user invitation logic |
 
 ## Pending Tasks
 ### Phase 0: Project Initialisation
@@ -34,6 +38,11 @@
 enum TransactionType {
   INCOME
   EXPENSE
+}
+
+enum UserRole {
+  OWNER
+  MEMBER
 }
 
 model User {
@@ -56,6 +65,7 @@ model Company {
 model CompanyUser {
   userId      Int
   companyId   Int
+  role        UserRole @default(MEMBER)
   joinedAt    DateTime  @default(now())
 
   user        User     @relation(fields: [userId], references: [id])
@@ -92,10 +102,11 @@ model Transaction {
 
 ### Phase 3: Company Management (Multi‑Company Setup)
 - ~~T3.1: Create `company` routes: `POST /companies`, `GET /companies`~~
-- T3.2: Implement `POST /companies` with automatic association
-- T3.3: Implement `GET /companies`
-- T3.4: Add `checkCompanyAccess` middleware
-- T3.5: Add `POST /companies/:companyId/users` endpoint
+- ~~T3.2: Implement `POST /companies` with automatic association (Atomic with Owner role)~~
+- ~~T3.3: Implement `GET /companies`~~
+- ~~T3.4: Implement `GET /companies/:companyId`~~
+- ~~T3.5: Add `checkCompanyAccess` middleware~~
+- ~~T3.6: Add `POST /companies/:companyId/users` endpoint~~
 
 ### Phase 4: Transactions API
 - T4.1: Create transaction routes: `POST /companies/:companyId/transactions`, `GET /companies/:companyId/transactions`
@@ -137,4 +148,4 @@ model Transaction {
 - (none)
 
 ## Current Focus
-- Task T3.2 (Implement POST /companies) – in progress
+- Task T4.1 (Create transaction routes) – up next
