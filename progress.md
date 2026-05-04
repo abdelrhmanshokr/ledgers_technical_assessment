@@ -9,6 +9,7 @@
 | T0.4 | Setup folder structure | 2026-05-04 | Created src/ directories and server.js |
 | T0.5 | Setup environment variables | 2026-05-04 | Created .env and .env.example |
 | T0.6 | Initialise Git repository | 2026-05-04 | Initialized git and made initial commit |
+| T1.1 | Initialize Prisma and write SQL schema | 2026-05-04 | Setup schema.prisma with relations |
 
 ## Pending Tasks
 ### Phase 0: Project Initialisation
@@ -58,9 +59,12 @@ model Transaction {
   date        DateTime
   createdAt   DateTime  @default(now())
   companyId   Int
+  userId      Int
+  user        User     @relation(fields: [userId], references: [id])
   company     Company   @relation(fields: [companyId], references: [id])
 }
 ```
+- ~~T1.1: Initialize Prisma and write SQL schema:~~
 - T1.2: Run schema migrations
 - T1.3: Create DB connection pool / Prisma client singleton
 
@@ -118,4 +122,4 @@ model Transaction {
 - (none)
 
 ## Current Focus
-- Task T1.1 (Initialize Prisma and write SQL schema) – in progress
+- Task T1.2 (Run schema migrations) – in progress
