@@ -40,6 +40,22 @@ This repository contains a financial management system designed with Node.js, Ex
    npm run start
    ```
 
+### Option 2: Using Docker (Recommended)
+The easiest way to run the full stack (App + Database + Redis) is using Docker Compose.
+
+1.  **Prepare Environment**:
+    ```bash
+    cp .env.example .env
+    ```
+    *(Note: The template is pre-configured to work with the Docker internal network).*
+
+2.  **Start the Stack**:
+    ```bash
+    sudo docker-compose up --build
+    ```
+
+The application will be available at [http://localhost:5000](http://localhost:5000). This command automatically handles database migrations and starts all required services.
+
 ## Architecture and Design Decisions
 
 ### Financial Precision
