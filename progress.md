@@ -15,6 +15,7 @@
 | T2.1 | Create auth routes skeleton | 2026-05-04 | v1 routing & global error handling |
 | T2.2 | Implement signup logic | 2026-05-04 | Hardened with validation & env checks |
 | T2.3 | Implement login logic | 2026-05-04 | JWT & Refresh tokens with security fixes |
+| T2.4 | Create auth middleware | 2026-05-04 | Verified protect middleware with DB check |
 
 ## Pending Tasks
 ### Phase 0: Project Initialisation
@@ -84,8 +85,7 @@ model Transaction {
 - ~~T2.1: Create `auth` routes: `POST /auth/signup`, `POST /auth/login`~~
 - ~~T2.2: Implement signup (bcrypt, JWT)~~
 - ~~T2.3: Implement login (verify, JWT tokens)~~
-- T2.4: Create `authMiddleware.js`
-- T2.5: Test endpoints
+- ~~T2.4: Create `authMiddleware.js`~~
 
 ### Phase 3: Company Management (Multi‑Company Setup)
 - T3.1: Create `company` routes: `POST /companies`, `GET /companies`
@@ -134,4 +134,4 @@ model Transaction {
 - (none)
 
 ## Current Focus
-- Task T2.4 (Create authMiddleware.js) – in progress
+- Task T2.5 (Test endpoints) – in progress
