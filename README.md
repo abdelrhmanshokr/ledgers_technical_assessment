@@ -57,3 +57,8 @@ This is a multi‑company financial ledger system API built with Node.js, Expres
 - [x] **T2.2**: Implemented secure user signup with `bcryptjs` and `jsonwebtoken`.
 - [x] **T2.3**: Implemented login with dual-token system (Access & Refresh tokens).
 - [x] **T2.4**: Created robust `authMiddleware.js` with database-level user verification and context enrichment.
+- [x] **T2.5**: Verified authentication endpoints and middleware functionality.
+
+### Phase 3: Company Management
+- [x] **T3.1**: Set up company management infrastructure and routes protected by authentication.
+- [ ] **T3.2**: Implementing `POST /companies` with automatic association - *In Progress*
