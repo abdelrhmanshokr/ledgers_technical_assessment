@@ -10,6 +10,7 @@
 | T0.5 | Setup environment variables | 2026-05-04 | Created .env and .env.example |
 | T0.6 | Initialise Git repository | 2026-05-04 | Initialized git and made initial commit |
 | T1.1 | Initialize Prisma and write SQL schema | 2026-05-04 | Setup schema.prisma with relations |
+| T1.2 | Run schema migrations | 2026-05-04 | Applied migrations with Decimal & Enums |
 
 ## Pending Tasks
 ### Phase 0: Project Initialisation
@@ -21,8 +22,13 @@
 - ~~T0.6: Initialise Git repository and create initial commit~~
 
 ### Phase 1: Database Setup (PostgreSQL)
-- T1.1: Initialize Prisma and write SQL schema:
+- ~~T1.1: Initialize Prisma and write SQL schema:~~
 ```prisma
+enum TransactionType {
+  INCOME
+  EXPENSE
+}
+
 model User {
   id            Int       @id @default(autoincrement())
   email         String    @unique
@@ -52,20 +58,22 @@ model CompanyUser {
 }
 
 model Transaction {
-  id          Int       @id @default(autoincrement())
-  amount      Float
-  type        String    // "income" or "expense"
+  id          Int             @id @default(autoincrement())
+  amount      Decimal         @db.Decimal(15, 2)
+  type        TransactionType
   description String?
   date        DateTime
-  createdAt   DateTime  @default(now())
+  createdAt   DateTime        @default(now())
   companyId   Int
   userId      Int
-  user        User     @relation(fields: [userId], references: [id])
-  company     Company   @relation(fields: [companyId], references: [id])
+  user        User            @relation(fields: [userId], references: [id])
+  company     Company         @relation(fields: [companyId], references: [id])
+
+  @@index([companyId])
+  @@index([userId])
 }
 ```
-- ~~T1.1: Initialize Prisma and write SQL schema:~~
-- T1.2: Run schema migrations
+- ~~T1.2: Run schema migrations (improved with precision & enums)~~
 - T1.3: Create DB connection pool / Prisma client singleton
 
 ### Phase 2: Authentication (Signup & Login)
@@ -122,4 +130,4 @@ model Transaction {
 - (none)
 
 ## Current Focus
-- Task T1.2 (Run schema migrations) – in progress
+- Task T1.3 (Create DB connection pool / Prisma client singleton) – in progress

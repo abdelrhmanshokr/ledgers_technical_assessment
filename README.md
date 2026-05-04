@@ -38,3 +38,12 @@ This is a multi‑company financial ledger system API built with Node.js, Expres
 - [Project Idea](docs/project_main_idea.md)
 - [Plan & Progress](docs/plan_and_progress.md)
 - [Detailed Task Progress](progress.md)
+
+## Implemented Tasks (Phase 0 & 1)
+- [x] **T0.1**: Initialized Node.js project.
+- [x] **T0.2 & T0.3**: Installed production and development dependencies.
+- [x] **T0.4**: Setup standard folder structure (`src/controllers`, `src/routes`, etc.).
+- [x] **T0.5**: Configured environment variables (`.env`).
+- [x] **T0.6**: Initialized Git repository.
+- [x] **T1.1**: Defined Prisma schema with `User`, `Company`, and `Transaction` models.
+- [x] **T1.2**: Applied database migrations with financial precision (`Decimal`) and type safety (`Enums`).
