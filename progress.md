@@ -39,6 +39,9 @@
 | T7.3 | Update DB schema & migrations | 2026-05-04 | Unique constraints and idempotency record tracking |
 | T7.4 | Controller & Transaction Integration | 2026-05-04 | Atomic writes with response caching and DB unique checks |
 | T7.5 | Concurrency & Failure Testing | 2026-05-04 | Verified duplicate/simultaneous requests and Redis fallback |
+| T8.1 | Write setup & run instructions | 2026-05-04 | Comprehensive README with env and DB steps |
+| T8.2 | Document architecture decisions | 2026-05-04 | Auth, DB, and Idempotency rationale explained |
+| T8.3 | Map detailed API documentation | 2026-05-04 | Endpoint reference with request/response examples |
 
 ## Pending Tasks
 ### Phase 0: Project Initialisation
@@ -151,9 +154,9 @@ model Transaction {
 - ~~T7.5: Testing~~
 
 ### Phase 8: Documentation (README)
-- T8.1: Write "How to run" instructions
-- T8.2: Document key design decisions
-- T8.3: Document and explain every endpoint 
+- ~~T8.1: Write "How to run" instructions~~
+- ~~T8.2: Document key design decisions~~
+- ~~T8.3: Document and explain every endpoint~~
 
 ### Phase 9: Testing
 - T9.1: Write smoke tests with Jest + Supertest
@@ -168,4 +171,4 @@ model Transaction {
 - (none)
 
 ## Current Focus
-- Phase 8 (Documentation - README) – Comprehensive bundle in progress
+- Phase 9 (Testing) – final verification before submission
