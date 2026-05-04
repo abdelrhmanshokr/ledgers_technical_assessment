@@ -39,15 +39,21 @@ This is a multi‑company financial ledger system API built with Node.js, Expres
 - [Plan & Progress](docs/plan_and_progress.md)
 - [Detailed Task Progress](progress.md)
 
-## Implemented Tasks (Phase 0 & 1)
+## Implemented Tasks
+### Phase 0: Project Initialisation
 - [x] **T0.1**: Initialized Node.js project.
 - [x] **T0.2 & T0.3**: Installed production and development dependencies.
 - [x] **T0.4**: Setup standard folder structure (`src/controllers`, `src/routes`, etc.).
 - [x] **T0.5**: Configured environment variables (`.env`).
 - [x] **T0.6**: Initialized Git repository.
+
+### Phase 1: Database Setup
 - [x] **T1.1**: Defined Prisma schema with `User`, `Company`, and `Transaction` models.
 - [x] **T1.2**: Applied database migrations with financial precision (`Decimal`) and type safety (`Enums`).
-- [x] **T1.3**: Implemented Prisma Client singleton with conditional logging and graceful shutdown.
-- [x] **T2.1**: Set up authentication routing skeleton with `/api/v1` versioning and global error handling middleware.
-- [x] **T2.2**: Implemented user signup with `bcryptjs` hashing, `jsonwebtoken` generation, and hardened environment/validation checks.
-- [ ] **T2.3**: Implementing login (verify, JWT tokens) - *In Progress*
+- [x] **T1.3**: Implemented Prisma Client singleton with logging and graceful shutdown.
+
+### Phase 2: Authentication
+- [x] **T2.1**: Set up routing skeleton with `/api/v1` versioning and global error handling.
+- [x] **T2.2**: Implemented secure user signup with `bcryptjs` and `jsonwebtoken`.
+- [x] **T2.3**: Implemented login with dual-token system (Access & Refresh tokens).
+- [ ] **T2.4**: Creating `authMiddleware.js` - *In Progress*

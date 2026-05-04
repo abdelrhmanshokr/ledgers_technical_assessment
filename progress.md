@@ -14,6 +14,7 @@
 | T1.3 | Create DB connection pool | 2026-05-04 | Singleton pattern & graceful shutdown |
 | T2.1 | Create auth routes skeleton | 2026-05-04 | v1 routing & global error handling |
 | T2.2 | Implement signup logic | 2026-05-04 | Hardened with validation & env checks |
+| T2.3 | Implement login logic | 2026-05-04 | JWT & Refresh tokens with security fixes |
 
 ## Pending Tasks
 ### Phase 0: Project Initialisation
@@ -82,7 +83,7 @@ model Transaction {
 ### Phase 2: Authentication (Signup & Login)
 - ~~T2.1: Create `auth` routes: `POST /auth/signup`, `POST /auth/login`~~
 - ~~T2.2: Implement signup (bcrypt, JWT)~~
-- T2.3: Implement login (verify, JWT tokens)
+- ~~T2.3: Implement login (verify, JWT tokens)~~
 - T2.4: Create `authMiddleware.js`
 - T2.5: Test endpoints
 
@@ -133,4 +134,4 @@ model Transaction {
 - (none)
 
 ## Current Focus
-- Task T2.3 (Implement login) – in progress
+- Task T2.4 (Create authMiddleware.js) – in progress
