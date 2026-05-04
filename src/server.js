@@ -14,15 +14,30 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 const prisma = require('./config/db');
+const routes = require('./routes');
+const errorHandler = require('./middleware/errorMiddleware');
 
 // Standard middleware for parsing JSON and handling CORS
 app.use(cors());
 app.use(express.json());
 
+// Global API routes
+app.use('/api', routes);
+
 // Basic health check route to verify server status
 app.get('/health', (req, res) => {
   res.status(200).json({ status: 'OK', message: 'Server is running' });
 });
+
+// Catch-all for undefined routes
+app.use((req, res, next) => {
+  const error = new Error(`Route ${req.originalUrl} not found`);
+  error.statusCode = 404;
+  next(error);
+});
+
+// Global Error Handler
+app.use(errorHandler);
 
 // Starts the server on the specified port
 const server = app.listen(PORT, () => {

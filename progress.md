@@ -12,6 +12,7 @@
 | T1.1 | Initialize Prisma and write SQL schema | 2026-05-04 | Setup schema.prisma with relations |
 | T1.2 | Run schema migrations | 2026-05-04 | Applied migrations with Decimal & Enums |
 | T1.3 | Create DB connection pool | 2026-05-04 | Singleton pattern & graceful shutdown |
+| T2.1 | Create auth routes skeleton | 2026-05-04 | v1 routing & global error handling |
 
 ## Pending Tasks
 ### Phase 0: Project Initialisation
@@ -78,7 +79,7 @@ model Transaction {
 - ~~T1.3: Create DB connection pool / Prisma client singleton~~
 
 ### Phase 2: Authentication (Signup & Login)
-- T2.1: Create `auth` routes: `POST /auth/signup`, `POST /auth/login`
+- ~~T2.1: Create `auth` routes: `POST /auth/signup`, `POST /auth/login`~~
 - T2.2: Implement signup (bcrypt, JWT)
 - T2.3: Implement login (verify, JWT tokens)
 - T2.4: Create `authMiddleware.js`
@@ -131,4 +132,4 @@ model Transaction {
 - (none)
 
 ## Current Focus
-- Task T2.1 (Create auth routes) – in progress
+- Task T2.2 (Implement signup) – in progress
