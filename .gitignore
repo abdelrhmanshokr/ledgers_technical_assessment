@@ -12,12 +12,21 @@ current_task/
 
 .env 
 
-# Ignore all AI agents files
+# Documentation and AI Management (Project Specific)
+docs/
 AGENT_DISPATCH.md
 CODER.md
 DOCUMENTER.md
 PLANNER.md
+REVIEWER.md
+TESTER.md
+VERIFIER.md
+progress.md
 progress_template.md
+ai_agents_docs/
+implemented_tasks/
+current_task/
+Ledgers — Backend Technical Assessment.pdf
 REVIEWER.md
 TESTER.md
 VERIFIER.md
