@@ -11,6 +11,10 @@ const dotenv = require('dotenv');
 // Loads environment variables from .env file
 dotenv.config();
 
+// Validate required environment variables before starting the server
+const validateEnv = require('./config/configCheck');
+validateEnv();
+
 const app = express();
 const PORT = process.env.PORT || 5000;
 const prisma = require('./config/db');
