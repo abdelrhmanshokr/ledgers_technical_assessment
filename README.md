@@ -74,4 +74,7 @@ This is a multi‑company financial ledger system API built with Node.js, Expres
 - [x] **T5.1 - T5.4**: Implemented financial dashboard analytics providing total income, expenses, and net balance using optimized database aggregations.
 
 ### Phase 6: Error Handling & Validation
-- [ ] **T6.1**: Standardizing error responses - *Next*
+- [x] **T6.1 - T6.3**: Standardized API responses with a global error handler and implemented robust input validation across all endpoints.
+
+### Phase 7: Security & Cleanup
+- [ ] **T7.1**: Hardening routes and rate limiting - *Next*

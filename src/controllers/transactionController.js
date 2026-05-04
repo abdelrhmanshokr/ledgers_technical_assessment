@@ -16,36 +16,10 @@ const createTransaction = async (req, res, next) => {
     const { companyId } = req.params;
     const userId = req.user.id;
 
-    // 1. Validation
-    // Use Decimal precision - amount should ideally be a string from client
-    if (!amount || isNaN(amount) || Number(amount) <= 0) {
-      const error = new Error('Amount must be a positive number');
-      error.statusCode = 400;
-      throw error;
-    }
+    // Validation is now handled by validateRequest middleware and createTransactionSchema
 
-    if (!['INCOME', 'EXPENSE'].includes(type)) {
-      const error = new Error('Type must be either INCOME or EXPENSE');
-      error.statusCode = 400;
-      throw error;
-    }
-
-    if (!category || typeof category !== 'string' || category.trim().length === 0) {
-      const error = new Error('Category is required');
-      error.statusCode = 400;
-      throw error;
-    }
-
-    // Validate date if provided
-    let transactionDate = new Date();
-    if (date) {
-      transactionDate = new Date(date);
-      if (isNaN(transactionDate.getTime())) {
-        const error = new Error('Invalid date format');
-        error.statusCode = 400;
-        throw error;
-      }
-    }
+    // Use current date if not provided (validateRequest ensures formatting if provided)
+    let transactionDate = date ? new Date(date) : new Date();
 
     // 2. Create Transaction in Database
     const transaction = await prisma.transaction.create({
@@ -81,39 +55,20 @@ const getTransactions = async (req, res, next) => {
     const { companyId } = req.params;
     const { type, startDate, endDate } = req.query;
 
-    // 1. Build Query Filters
+    // 1. Build Query Filters (Validation handled by getTransactionsFiltersSchema)
     const filters = {
       companyId: parseInt(companyId, 10),
     };
 
-    if (type && ['INCOME', 'EXPENSE'].includes(type)) {
+    if (type) {
       filters.type = type;
-    } 
+    }
 
-    // Validate and build date range filters
+    // Date range filters
     if (startDate || endDate) {
       filters.date = {};
-      
-      if (startDate) {
-        const start = new Date(startDate);
-        if (isNaN(start.getTime())) {
-          const error = new Error('Invalid startDate format');
-          error.statusCode = 400;
-          throw error;
-        }
-        filters.date.gte = start;
-      }
-
-      if (endDate) {
-        const end = new Date(endDate);
-        if (isNaN(end.getTime())) {
-          const error = new Error('Invalid endDate format');
-          error.statusCode = 400;
-          throw error;
-        }
-        filters.date.lte = end;
-      }
-    }
+      if (startDate) filters.date.gte = new Date(startDate);
+      if (endDate) filters.date.lte = new Date(endDate);    }
 
     // 2. Fetch Transactions from Database
     const transactions = await prisma.transaction.findMany({

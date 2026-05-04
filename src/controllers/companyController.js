@@ -107,8 +107,9 @@ const createCompanyUser = async (req, res, next) => {
     }
 
     // 2. Additional validation to check if company and user exist can be added here for robustness.
+    const cid = parseInt(companyId, 10);
     const company = await prisma.company.findUnique({
-      where: { id: companyId },
+      where: { id: cid },
     });
     if (!company) {
       const error = new Error('Company not found');
@@ -121,7 +122,7 @@ const createCompanyUser = async (req, res, next) => {
       where: {
         userId_companyId: {
           userId: userId || req.user.id,
-          companyId,
+          companyId: cid,
         },
       },
     });
@@ -148,7 +149,7 @@ const createCompanyUser = async (req, res, next) => {
       const result = await prisma.companyUser.create({
         data: {
           userId,
-          companyId,
+          companyId: cid,
           role: 'MEMBER',
         },
       });
@@ -164,7 +165,7 @@ const createCompanyUser = async (req, res, next) => {
       const result = await prisma.companyUser.create({
         data: {
           userId: req.user.id,
-          companyId,
+          companyId: cid,
           role: 'MEMBER',
         },
       });
@@ -244,28 +245,10 @@ const getCompanyDashboard = async (req, res, next) => {
     const companyId = req.company.id;
     const { startDate, endDate } = req.query;
 
-    // 2. Build date filters if provided
+    // 2. Build date filters (Validation handled by schema)
     const dateFilter = {};
-    if (startDate || endDate) {
-      if (startDate) {
-        const start = new Date(startDate);
-        if (isNaN(start.getTime())) {
-          const error = new Error('Invalid startDate format');
-          error.statusCode = 400;
-          throw error;
-        }
-        dateFilter.gte = start;
-      }
-      if (endDate) {
-        const end = new Date(endDate);
-        if (isNaN(end.getTime())) {
-          const error = new Error('Invalid endDate format');
-          error.statusCode = 400;
-          throw error;
-        }
-        dateFilter.lte = end;
-      }
-    }
+    if (startDate) dateFilter.gte = new Date(startDate);
+    if (endDate) dateFilter.lte = new Date(endDate);
 
     // 3. Aggregate INCOME & EXPENSE with High Precision
     const [income, expense] = await Promise.all([

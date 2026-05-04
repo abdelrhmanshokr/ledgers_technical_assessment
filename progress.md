@@ -31,6 +31,9 @@
 | T5.2 | Verify company access | 2026-05-04 | Integrated with checkCompanyAccess middleware |
 | T5.3 | Query revenue and expenses | 2026-05-04 | Using Prisma aggregations for totals |
 | T5.4 | Return dashboard JSON | 2026-05-04 | Summary with total/expense/balance |
+| T6.1 | Add global error handler middleware | 2026-05-04 | Catch-all for async/sync errors with logging |
+| T6.2 | Add request validation | 2026-05-04 | Implemented Joi/Zod or manual validation rules |
+| T6.3 | Standardize error response format | 2026-05-04 | Unified success/error JSON structure |
 
 ## Pending Tasks
 ### Phase 0: Project Initialisation
@@ -131,9 +134,9 @@ model Transaction {
 - ~~T5.4: Return dashboard JSON~~
 
 ### Phase 6: Error Handling & Validation
-- T6.1: Add global error handler middleware
-- T6.2: Add request validation (manual or express-validator)
-- T6.3: Standardize error response format
+- ~~T6.1: Add global error handler middleware~~
+- ~~T6.2: Add request validation (manual or express-validator)~~
+- ~~T6.3: Standardize error response format~~
 
 ### Phase 7: Security & Cleanup
 - T7.1: Protect all sensitive routes
@@ -157,4 +160,4 @@ model Transaction {
 - (none)
 
 ## Current Focus
-- Phase 6 (Error Handling & Validation) – refining reliability
+- Phase 7 (Security & Cleanup) – hardening production readiness
