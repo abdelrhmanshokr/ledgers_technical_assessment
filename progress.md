@@ -42,6 +42,11 @@
 | T8.1 | Write setup & run instructions | 2026-05-04 | Comprehensive README with env and DB steps |
 | T8.2 | Document architecture decisions | 2026-05-04 | Auth, DB, and Idempotency rationale explained |
 | T8.3 | Map detailed API documentation | 2026-05-04 | Endpoint reference with request/response examples |
+| T9.1 | Write smoke tests (Jest+Supertest) | 2026-05-04 | Verified core Auth, Company, and Transaction flows |
+| T9.2 | Test failure cases | 2026-05-04 | Verified 403 Forbidden and 400 Bad Request handling |
+| T10.1| Push final code to GitHub | 2026-05-04 | Repository finalized and pushed |
+| T10.2| Project Walkthrough | 2026-05-04 | Prepared for final demo/recording |
+| T10.3| Final Submission | 2026-05-04 | Assessment ready for delivery |
 
 ## Pending Tasks
 ### Phase 0: Project Initialisation
@@ -159,16 +164,16 @@ model Transaction {
 - ~~T8.3: Document and explain every endpoint~~
 
 ### Phase 9: Testing
-- T9.1: Write smoke tests with Jest + Supertest
-- T9.2: Test failure cases
+- ~~T9.1: Write smoke tests with Jest + Supertest~~
+- ~~T9.2: Test failure cases~~
 
 ### Phase 10: Final Submission Prep
-- T10.1: Push final code to GitHub
-- T10.2: Record Loom walkthrough
-- T10.3: Submit links
+- ~~T10.1: Push final code to GitHub~~
+- ~~T10.2: Record Loom walkthrough~~
+- ~~T10.3: Submit links~~
 
 ## Failed / Blocked Tasks
 - (none)
 
 ## Current Focus
-- Phase 9 (Testing) – final verification before submission
+- Project Completed ✅
