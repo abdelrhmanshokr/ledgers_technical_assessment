@@ -7,6 +7,8 @@
 | T0.2 | Install dependencies | 2026-05-03 | Production and dev deps installed |
 | T0.3 | Install dev dependencies | 2026-05-03 | Installed nodemon and jest |
 | T0.4 | Setup folder structure | 2026-05-04 | Created src/ directories and server.js |
+| T0.5 | Setup environment variables | 2026-05-04 | Created .env and .env.example |
+| T0.6 | Initialise Git repository | 2026-05-04 | Initialized git and made initial commit |
 
 ## Pending Tasks
 ### Phase 0: Project Initialisation
@@ -14,8 +16,8 @@
 - ~~T0.2: Install dependencies: `express`, `jsonwebtoken`, `bcryptjs`, `pg`, `dotenv`, `cors`, `prisma`, `@prisma/client`~~
 - ~~T0.3: Install dev dependencies: `nodemon`, `jest`~~
 - ~~T0.4: Setup folder structure (src/, config/, controllers/, middleware/, models/, routes/, utils/)~~
-- T0.5: Setup environment variables (`.env`)
-- T0.6: Initialise Git repository and create initial commit
+- ~~T0.5: Setup environment variables (`.env`)~~
+- ~~T0.6: Initialise Git repository and create initial commit~~
 
 ### Phase 1: Database Setup (PostgreSQL)
 - T1.1: Initialize Prisma and write SQL schema:
@@ -116,4 +118,4 @@ model Transaction {
 - (none)
 
 ## Current Focus
-- Task T0.5 (Setup environment variables) – in progress
+- Task T1.1 (Initialize Prisma and write SQL schema) – in progress
