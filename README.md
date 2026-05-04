@@ -5,7 +5,7 @@ This repository contains a financial management system designed with Node.js, Ex
 ## Setup and Installation
 
 ### Prerequisites
-- Node.js (v18 or higher)
+- Node.js (v22)
 - PostgreSQL database
 - Redis server (required for the idempotency layer)
 
