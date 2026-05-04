@@ -27,6 +27,10 @@
 | T4.3 | Implement POST transaction | 2026-05-04 | Record income/expense with financial precision |
 | T4.4 | Implement GET transactions | 2026-05-04 | Listing with type and date range filtering |
 | T4.5 | Implement input validation | 2026-05-04 | Hardened with amount and type checks |
+| T5.1 | Create dashboard route | 2026-05-04 | GET /api/v1/companies/:id/dashboard |
+| T5.2 | Verify company access | 2026-05-04 | Integrated with checkCompanyAccess middleware |
+| T5.3 | Query revenue and expenses | 2026-05-04 | Using Prisma aggregations for totals |
+| T5.4 | Return dashboard JSON | 2026-05-04 | Summary with total/expense/balance |
 
 ## Pending Tasks
 ### Phase 0: Project Initialisation
@@ -121,10 +125,10 @@ model Transaction {
 - ~~T4.5: Validate input~~
 
 ### Phase 5: Dashboard Endpoint
-- T5.1: Create route: `GET /dashboard?companyId=XYZ`
-- T5.2: Verify company access
-- T5.3: Query revenue and expenses
-- T5.4: Return dashboard JSON
+- ~~T5.1: Create route: `GET /dashboard?companyId=XYZ`~~
+- ~~T5.2: Verify company access~~
+- ~~T5.3: Query revenue and expenses~~
+- ~~T5.4: Return dashboard JSON~~
 
 ### Phase 6: Error Handling & Validation
 - T6.1: Add global error handler middleware
@@ -153,4 +157,4 @@ model Transaction {
 - (none)
 
 ## Current Focus
-- Phase 5 (Dashboard Endpoint & Analytics) – next step
+- Phase 6 (Error Handling & Validation) – refining reliability

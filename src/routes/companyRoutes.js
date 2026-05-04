@@ -24,4 +24,7 @@ router.get('/', companyController.getCompanies);
 // Get company details by ID (Requires MEMBER access)
 router.get('/:companyId', checkCompanyAccess(), companyController.getCompanyById);
 
+// Get company dashboard data (Requires MEMBER access)
+router.get('/:companyId/dashboard', checkCompanyAccess(), companyController.getCompanyDashboard);
+
 module.exports = router;

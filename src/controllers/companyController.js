@@ -3,6 +3,7 @@
  * Controller handlers for company-related routes.
  */
 
+const { Prisma } = require('@prisma/client');
 const prisma = require('../config/db');
 
 /**
@@ -233,9 +234,85 @@ const getCompanyById = async (req, res, next) => {
   }
 };
 
+/**
+ * Get company dashboard data
+ * GET /api/v1/companies/:companyId/dashboard
+ */
+const getCompanyDashboard = async (req, res, next) => {
+  try {
+    // 1. Utilize middleware context (cid handled by checkCompanyAccess via req.company)
+    const companyId = req.company.id;
+    const { startDate, endDate } = req.query;
+
+    // 2. Build date filters if provided
+    const dateFilter = {};
+    if (startDate || endDate) {
+      if (startDate) {
+        const start = new Date(startDate);
+        if (isNaN(start.getTime())) {
+          const error = new Error('Invalid startDate format');
+          error.statusCode = 400;
+          throw error;
+        }
+        dateFilter.gte = start;
+      }
+      if (endDate) {
+        const end = new Date(endDate);
+        if (isNaN(end.getTime())) {
+          const error = new Error('Invalid endDate format');
+          error.statusCode = 400;
+          throw error;
+        }
+        dateFilter.lte = end;
+      }
+    }
+
+    // 3. Aggregate INCOME & EXPENSE with High Precision
+    const [income, expense] = await Promise.all([
+      prisma.transaction.aggregate({
+        _sum: { amount: true },
+        where: { 
+          companyId, 
+          type: 'INCOME',
+          ...(Object.keys(dateFilter).length > 0 && { date: dateFilter })
+        }
+      }),
+      prisma.transaction.aggregate({
+        _sum: { amount: true },
+        where: { 
+          companyId, 
+          type: 'EXPENSE',
+          ...(Object.keys(dateFilter).length > 0 && { date: dateFilter })
+        }
+      })
+    ]);
+
+    const totalIncome = income._sum.amount || new Prisma.Decimal(0);
+    const totalExpense = expense._sum.amount || new Prisma.Decimal(0);
+    const netBalance = totalIncome.minus(totalExpense);
+
+    // 4. Return as Strings to avoid precision loss on client side
+    res.status(200).json({
+      status: 'success',
+      data: {
+        companyId,
+        summary: {
+          totalIncome: totalIncome.toString(),
+          totalExpense: totalExpense.toString(),
+          netBalance: netBalance.toString(),
+        },
+        currency: 'USD',
+      },
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
 module.exports = {
   createCompany,
   createCompanyUser,
   getCompanies,
   getCompanyById,
+  getCompanyDashboard
 };

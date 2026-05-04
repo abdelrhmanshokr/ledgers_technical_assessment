@@ -14,9 +14,6 @@ const checkCompanyAccess = (requiredRole = null) => {
     try {
       const { companyId } = req.params;
       const userId = req.user.id;
-      console.log("req.params", req.params);
-      console.log("req.query", req.query);
-      console.log("companyId", companyId, "userId", userId);
 
       if (!companyId) {
         const error = new Error('Company ID is required for access check');
@@ -36,7 +33,6 @@ const checkCompanyAccess = (requiredRole = null) => {
           company: true,
         },
       });
-      console.log("association", association);
 
       // 2. Return 403 Forbidden if the user is not a member
       if (!association) {
