@@ -47,3 +47,4 @@ This is a multi‑company financial ledger system API built with Node.js, Expres
 - [x] **T0.6**: Initialized Git repository.
 - [x] **T1.1**: Defined Prisma schema with `User`, `Company`, and `Transaction` models.
 - [x] **T1.2**: Applied database migrations with financial precision (`Decimal`) and type safety (`Enums`).
+- [x] **T1.3**: Implemented Prisma Client singleton with conditional logging and graceful shutdown.

@@ -11,6 +11,7 @@
 | T0.6 | Initialise Git repository | 2026-05-04 | Initialized git and made initial commit |
 | T1.1 | Initialize Prisma and write SQL schema | 2026-05-04 | Setup schema.prisma with relations |
 | T1.2 | Run schema migrations | 2026-05-04 | Applied migrations with Decimal & Enums |
+| T1.3 | Create DB connection pool | 2026-05-04 | Singleton pattern & graceful shutdown |
 
 ## Pending Tasks
 ### Phase 0: Project Initialisation
@@ -74,7 +75,7 @@ model Transaction {
 }
 ```
 - ~~T1.2: Run schema migrations (improved with precision & enums)~~
-- T1.3: Create DB connection pool / Prisma client singleton
+- ~~T1.3: Create DB connection pool / Prisma client singleton~~
 
 ### Phase 2: Authentication (Signup & Login)
 - T2.1: Create `auth` routes: `POST /auth/signup`, `POST /auth/login`
@@ -130,4 +131,4 @@ model Transaction {
 - (none)
 
 ## Current Focus
-- Task T1.3 (Create DB connection pool / Prisma client singleton) – in progress
+- Task T2.1 (Create auth routes) – in progress
